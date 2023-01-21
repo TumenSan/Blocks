@@ -90,22 +90,66 @@ public class BlockLibrary {
 
     public static void main(String[] args)  {
 
-        Block block1 = new Block(100, 120, 40, 50, "Текст 1 текст 1");
-        Block block2 = new Block(26, 32, 40, 51, "Текст 2 текст 2");
-        Block block3 = new Block(50, 45, 10, 16, "Текст 3 текст 3");
-        Block block4 = new Block(88, 131, 200, 220, "4 карта");
-        Block block5 = new Block(300, 350, 300, 350, "5 план");
+        int n = 5;
+        Test1 test1[], testCopy[];
+        test1 = new Test1[n];
+        testCopy = new Test1[n];
+        int Min = 1, Width = 150, Max = 1;
+        double Coef = 0.6667;
+        for(int i = 0; i < n; i++){
+            test1[i] = new Test1(Min);
+            Min = test1[i].GetUpY();
+            if (test1[i].GetRightX() > Max)
+                Max = test1[i].GetRightX();
+            testCopy[i] = test1[i];
+        }
+
+        for(int i = 0; i < n; i++){
+            System.out.println("("+test1[i].GetLeftX()+", "+ test1[i].GetRightX()+", "+ test1[i]
+                    .GetUpY()+", "+ test1[i].GetDownY()+", |"+ test1[i].GetText()+"|)");
+        }
+        System.out.println(" ");
+
+        Random rnd = new Random();
+        for (int i = 1; i < testCopy.length; i++) {
+            int j = rnd.nextInt(i);
+            Test1 temp = testCopy[i];
+            testCopy[i] = testCopy[j];
+            testCopy[j] = temp;
+        }
+
+        for(int i = 0; i < n; i++){
+            testCopy[i].SetTestBlocks(Coef);
+        }
+/*
+        for(int i = 0; i < n; i++){
+            System.out.println("("+test1[i].GetLeftX()+", "+ test1[i].GetRightX()+", "+ test1[i]
+                    .GetUpY()+", "+ test1[i].GetDownY()+", |"+ test1[i].GetText()+"|)");
+        }
+ */
+
+        for(int i = 0; i < n; i++){
+            System.out.println("("+testCopy[i].GetLeftX()+", "+ testCopy[i].GetRightX()+", "+ testCopy[i]
+                    .GetUpY()+", "+ testCopy[i].GetDownY()+", |"+ testCopy[i].GetText()+"|)");
+        }
+
+        Block blocks[];
+        blocks = new Block[n];
+        for(int i = 0; i < n; i++){
+            blocks[i] = new Block(testCopy[i].GetLeftX(), testCopy[i].GetRightX(), testCopy[i].GetUpY(),
+                    testCopy[i].GetDownY(), testCopy[i].GetText());
+        }
 
         Block testArray[];
         testArray = new Block[5];
-        testArray[0] = new Block(block1);
-        testArray[1] = new Block(block2);
-        testArray[2] = new Block(block3);
-        testArray[3] = new Block(block4);
-        testArray[4] = new Block(block5);
+        testArray[0] = new Block(blocks[0]);
+        testArray[1] = new Block(blocks[1]);
+        testArray[2] = new Block(blocks[2]);
+        testArray[3] = new Block(blocks[3]);
+        testArray[4] = new Block(blocks[4]);
 
         BlockLibrary bl = new BlockLibrary(testArray);
-        bl.ChangeWidth(350);
+        bl.ChangeWidth(Max);
 
         Block resultArray[];
         resultArray = bl.GetResult();
