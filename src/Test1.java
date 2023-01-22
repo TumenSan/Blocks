@@ -19,12 +19,12 @@ public class Test1 {
 
     public Test1(int MinUp) {
 
-        leftX = (int)(Math.random() * (1000 - 0)) + 0;
-        rightX = (int)(Math.random() * (1000 - 0)) + 0;
-        if(MinUp != 1000)
-            upY = (int)(Math.random() * (1000 - MinUp)) + MinUp + 1;
-        else upY = 1000;
-        downY = (int)(Math.random() * (1000 - 0)) + 0;
+        leftX = (int)(Math.random() * (2000 - 0)) + 0;
+        rightX = (int)(Math.random() * (2000 - leftX)) + leftX;
+        if(MinUp != 2000)
+            upY = (int)(Math.random() * (2000 - MinUp)) + MinUp + 1;
+        else upY = 2000;
+        downY = (int)(Math.random() * (2000 - upY)) + upY;
 
         text = "newText1";
 
