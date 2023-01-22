@@ -110,7 +110,7 @@ public class BlockLibrary {
             System.out.println("("+test1[i].GetLeftX()+", "+ test1[i].GetRightX()+", "+ test1[i]
                     .GetUpY()+", "+ test1[i].GetDownY()+", |"+ test1[i].GetText()+"|)");
         }
-        System.out.println(" ");
+        System.out.println(" "); //вид блоков который должен быть
 
         Random rnd = new Random();
         for (int i = 1; i < testCopy.length; i++) {
@@ -133,7 +133,7 @@ public class BlockLibrary {
         for(int i = 0; i < n; i++){
             System.out.println("("+testCopy[i].GetLeftX()+", "+ testCopy[i].GetRightX()+", "+ testCopy[i]
                     .GetUpY()+", "+ testCopy[i].GetDownY()+", |"+ testCopy[i].GetText()+"|)");
-        }
+        } //изначальный вид блоков
 
         Block blocks[];
         blocks = new Block[n];
@@ -160,7 +160,7 @@ public class BlockLibrary {
         {
             System.out.println("("+resultArray[i].GetLeftX()+", "+ resultArray[i].GetRightX()+", "+ resultArray[i]
                     .GetUpY()+", "+ resultArray[i].GetDownY()+", |"+ resultArray[i].GetText()+"|)");
-        }
+        } //вывод проги (ее вариант)
     }
 
 
