@@ -26,7 +26,7 @@ public class Test1 {
         else upY = 1000;
         downY = (int)(Math.random() * (1000 - 0)) + 0;
 
-        text = "newText";
+        text = "newText1";
 
     }
 
