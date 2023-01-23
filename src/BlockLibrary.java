@@ -151,6 +151,7 @@ public class BlockLibrary {
         testArray[4] = new Block(blocks[4]);
 
         BlockLibrary bl = new BlockLibrary(testArray);
+        System.out.println(Max);
         bl.ChangeWidth(Max);
 
         Block resultArray[];
